@@ -23,4 +23,5 @@ class Parser:
     '''
     def showUI(self):
         ui_data = self._begin_parse()
+        print(ui_data)
         

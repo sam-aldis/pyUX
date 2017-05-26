@@ -46,9 +46,18 @@ class UI:
         self.window.Show()
         self.mainthread = thread.start_new(self.app.mainloop,())
     
+    # Add Menu Bar
+    # items passed to this function should be in an array of dictionaries
+    # i.e.
+    # { 'id' : wx.ID_EXIT, 'name' : 'Exit', 'help' : 'Quit the application'}
+    def addMenuBar(self, *args):
+        self.menuBar = we.Menu()
+        for item in args:
+            self.menuBar.Append(item['id'], item['name'],item['help'])
+
     # Adds a component to the window
-    def addComponent(self,component):
-        pass
+    def addComponent(self,component,parent=self.window):
+        parent
 
     # Center the window on the screen
     def centerWindow(self):
