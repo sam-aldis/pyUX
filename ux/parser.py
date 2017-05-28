@@ -2,6 +2,13 @@
 import xmltodict
 import os,sys
 import ux.exceptions as e
+import ui
+
+
+
+# PARSER VALUES AND THEIR EQUIVILENT IN pyUX
+
+
 
 class Parser:
     def __init__(self,file):
@@ -11,7 +18,7 @@ class Parser:
             with open(self.file) as fh:
                 doc = xmltodict.parse(fh.read())
             if doc != None and doc != "":
-                print(doc)
+                return doc
             else:
                 raise e.ParserError(e._EXCEPTION_FILE_NOT_FOUND)
         except Exception as error:
@@ -23,5 +30,8 @@ class Parser:
     '''
     def showUI(self):
         ui_data = self._begin_parse()
-        print(ui_data)
-        
+        for i in ui_data.items():
+            if i[0] == "App":
+                #First object is the app container
+                ux = ui.pyUX(i)
+                print(ux.get_attr())
