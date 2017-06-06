@@ -8,8 +8,7 @@ This module handles the UI creation, if the ui module is changed (i.e from wx to
 then the functions should be named the same, this allows for the UI framework to easily be switched
 out at a later date
 '''
-attr = re.compile(r'@[a-zA-Z0-9].*')
-inner = re.compile(r'#[a-zA-Z0-9].*')
+
 # Base Class for all elements
 class pyUX:
     def __init__(self, element):
@@ -37,7 +36,7 @@ class pyUX:
                 count+=1
             return i[count]
 
-# THe component class can be extended/overwritten to create new elements
+# The component class can be extended/overwritten to create new elements
 # Creates the basic structure for all other objects
 class Component:
     def __init__(self,window):
@@ -78,7 +77,7 @@ class UI:
     # Add Menu Bar
     # items passed to this function should be in an array of dictionaries
     # i.e.
-    # { 'id' : wx.ID_EXIT, 'name' : 'Exit', 'help' : 'Quit the application'}
+    # [{ 'id' : wx.ID_EXIT, 'name' : 'Exit', 'help' : 'Quit the application'}]
     def addMenuBar(self, *args):
         self.menuBar = we.Menu()
         for item in args:

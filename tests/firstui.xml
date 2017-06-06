@@ -1,4 +1,4 @@
 <?DOCTYPE pyUI ?>
-<App>
+<App name="test_ui">
     <Title appname="test">Welcome</Title>
 </App>
